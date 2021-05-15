@@ -1,25 +1,21 @@
 <template>
-  <div class="home">
+  <div>
     <Header />
     <v-main>
-      <Carousel />
+      <h1>Soy el upload</h1>
     </v-main>
     <Footer />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Carousel from "@/components/Carousel";
 
 export default {
-  name: "Home",
   components: {
     Header,
     Footer,
-    Carousel,
   },
 };
 </script>
