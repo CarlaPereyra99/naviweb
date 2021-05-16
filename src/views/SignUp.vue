@@ -35,11 +35,10 @@
                 required
               ></v-text-field>
               <v-text-field
-                label="Correo Electronico"
                 v-model="email"
+                :rules="emailRules"
                 prepend-inner-icon="mdi-email"
-                :rules="[() => !!password || 'This field is required']"
-                suffix="@gmail.com"
+                label="E-mail"
                 required
               ></v-text-field>
               <v-text-field
@@ -51,8 +50,7 @@
                 prepend-inner-icon="mdi-lock"
                 label="Contraseña"
                 @click:append="show = !show"
-              ></v-text-field
-              >¿
+              ></v-text-field>
             </v-card-text>
             <v-card-actions>
               <v-btn color="red" text>Cancel</v-btn>
@@ -88,9 +86,10 @@ export default {
       password: null,
       country: null,
       formHasErrors: false,
-      rules: {
-        required: (value) => !!value || "Required.",
-      },
+      emailRules: [
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+      ],
     };
   },
   methods: {

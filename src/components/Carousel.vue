@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-carousel v-model="model">
+    <v-carousel
+      v-model="model"
+      cycle
+      hide-delimiter-background
+      show-arrows-on-hover
+    >
       <v-carousel-item v-for="(color, i) in colors" :key="color">
         <v-sheet :color="color" height="100%" tile>
           <v-row class="fill-height" align="center" justify="center">

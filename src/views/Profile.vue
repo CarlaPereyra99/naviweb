@@ -17,7 +17,6 @@
           <h2 class="ml-3"><strong>Nickname:</strong> NaerHdz</h2>
         </v-col>
       </v-row>
-
       <Carousel class="mt-1" />
     </v-main>
     <Footer />
