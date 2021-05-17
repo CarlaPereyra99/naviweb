@@ -14,7 +14,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link>
+        <v-list-item link v-if="session">
           <v-list-item-action>
             <v-icon>mdi-login</v-icon>
           </v-list-item-action>
@@ -29,7 +29,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link>
+        <v-list-item v-if="!session" link>
           <v-list-item-action>
             <v-icon>mdi-face</v-icon>
           </v-list-item-action>
@@ -44,7 +44,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link>
+        <v-list-item link v-if="!session">
           <v-list-item-action>
             <v-icon>mdi-upload</v-icon>
           </v-list-item-action>
@@ -59,7 +59,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item link>
+        <v-list-item v-if="!session" link>
           <v-list-item-action>
             <v-icon>mdi-logout</v-icon>
           </v-list-item-action>
@@ -86,11 +86,16 @@ export default {
   data: () => {
     return {
       drawer: false,
+      session: true,
     };
+  },
+  created() {
+    this.session = localStorage.getItem("usuario") ? false : true;
   },
   methods: {
     logout() {
-      alert("Logout");
+      localStorage.removeItem("usuario");
+      window.location.reload();
     },
   },
 };
