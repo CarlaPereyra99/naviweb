@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-app id="nav">
+    <v-app id="nav" style="background-color: gray">
       <router-view />
     </v-app>
   </div>
@@ -12,7 +12,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {

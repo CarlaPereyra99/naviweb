@@ -71,7 +71,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app color="cyan" dark>
+    <v-app-bar app color="black" dark>
       <v-spacer></v-spacer>
 
       <v-toolbar-title>Navi - Hey Listen!</v-toolbar-title>
@@ -95,7 +95,7 @@ export default {
   methods: {
     logout() {
       localStorage.removeItem("usuario");
-      window.location.reload();
+      window.location.href = "/";
     },
   },
 };
