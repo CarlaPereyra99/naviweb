@@ -6,7 +6,7 @@
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="4">
             <v-card class="elevation-12">
-              <v-toolbar color="cyan" dark flat>
+              <v-toolbar color="black" dark flat>
                 <v-toolbar-title>Inciar Sesion</v-toolbar-title>
               </v-toolbar>
               <v-card-text>
