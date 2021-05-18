@@ -56,7 +56,7 @@
               <v-btn color="red" text>Cancel</v-btn>
               <v-spacer></v-spacer>
 
-              <v-btn color="black" text @click="submit">Registrar</v-btn>
+              <v-btn color="black" text @click="submit">Registrarme</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>

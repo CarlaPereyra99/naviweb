@@ -86,7 +86,7 @@ export default {
   data: () => {
     return {
       drawer: false,
-      session: true,
+      session: false,
     };
   },
   created() {

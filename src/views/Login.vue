@@ -27,7 +27,7 @@
                   ></v-text-field>
                 </v-form>
                 <router-link to="/SignUp">
-                  ¿Aun no tienes cuenta? Registrarse
+                  ¿Aun no tienes cuenta? ¡Registrate!
                 </router-link>
               </v-card-text>
               <v-card-actions>
