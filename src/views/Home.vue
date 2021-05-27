@@ -8,6 +8,10 @@
           <v-text-field
             v-model="search"
             label="Busqueda"
+            placeholder="¿Qué quieres buscar?"
+            filled
+            rounded
+            dense
             prepend-inner-icon="mdi-magnify"
             outlined
           ></v-text-field>
