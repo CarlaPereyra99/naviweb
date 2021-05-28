@@ -5,6 +5,9 @@
       <v-row justify="center">
         <v-col cols="12" sm="10" md="8" lg="6">
           <v-card ref="form">
+            <v-toolbar color="black" dark flat>
+              <v-toolbar-title> Cuentanos un poco de tí </v-toolbar-title>
+            </v-toolbar>
             <v-card-text>
               <v-text-field
                 ref="name"
@@ -69,6 +72,7 @@
 <script>
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import swal from "sweetalert2";
 
 export default {
   components: {
@@ -84,7 +88,6 @@ export default {
       nickname: null,
       email: null,
       password: null,
-      country: null,
       formHasErrors: false,
       emailRules: [
         (v) => !!v || "E-mail is required",
@@ -93,8 +96,30 @@ export default {
     };
   },
   methods: {
-    submit() {
-      alert("Se registro");
+    async submit() {
+      const response = await fetch("http://localhost:4000/api/user/", {
+        method: "post",
+        body: JSON.stringify({
+          name: this.name,
+          lastname: this.lastname,
+          nickname: this.nickname,
+          email: this.email,
+          password: this.password,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        new swal("Listo!", "Se ha registrado correctamente", "success").then(
+          () => {
+            window.location.href = "/Login";
+          }
+        );
+      } else {
+        new swal("Error", "Revisa tu conexion a internet", "error");
+      }
     },
   },
 };

@@ -30,7 +30,7 @@
               ></v-file-input>
               <v-text-field
                 v-model="website"
-                label="website"
+                label="website (opcional)"
                 prepend-icon="mdi-web"
                 placeholder="Ingrese el genero del Juego"
                 required
@@ -40,7 +40,7 @@
               <v-btn color="red" text>Cancel</v-btn>
               <v-spacer></v-spacer>
 
-              <v-btn color="black" text @click="submit">Subir</v-btn>
+              <v-btn color="black" text @click="upload">Subir</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -53,6 +53,7 @@
 <script>
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import swal from "sweetalert2";
 
 export default {
   components: {
@@ -66,6 +67,33 @@ export default {
       website: "",
       img: null,
     };
+  },
+  methods: {
+    async upload() {
+      if (this.name && this.genre && this.img) {
+        const response = await fetch("http://localhost:4000/api/game/", {
+          method: "post",
+          body: JSON.stringify({
+            id: localStorage.getItem("usuario"),
+            name: this.name,
+            genre: this.genre,
+            website: this.website,
+            image: this.img.name,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          new swal("Listo!", "Se subio el videojuego exitosamente", "success");
+        } else {
+          new swal("Error", "Revisa tu conexion a internet", "error");
+        }
+      } else {
+        new swal("Error", "Hay Campos Obligatorios Vacios", "error");
+      }
+    },
   },
 };
 </script>

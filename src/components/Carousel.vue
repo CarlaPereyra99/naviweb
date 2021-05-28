@@ -43,7 +43,7 @@ export default {
     return {
       model: 0,
       colors: [
-        require("../assets/kof.jpg"),
+        require("../assets/kof97.jpg"),
         require("../assets/metal slug.jpg"),
         require("../assets/smashbros.jpg"),
         require("../assets/coverpokemon.jpg"),
