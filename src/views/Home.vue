@@ -2,11 +2,13 @@
   <div class="home">
     <Header />
     <v-main>
-      <v-card color="red accent-4">
-        <v-img src="../assets/cover-page.webp" />
+      <v-card style="border-radius: 20px" color="red accent-4">
+        <v-img src="../assets/cover-page.webp">
+          <Carousel class="mt-10" />
+        </v-img>
       </v-card>
 
-      <h1>Juegos destacados de la semana</h1>
+      <h1 style="color: black">Juegos destacados de la semana</h1>
       <v-container fluid>
         <v-data-iterator
           :items="items"
@@ -65,8 +67,7 @@
               >
                 <v-card>
                   <v-card-title class="subheading font-weight-bold">
-                    {{ item.name }}
-                    <v-img :src="item['imagen']" />
+                    <v-img :src="item['imagen']"> </v-img>
                   </v-card-title>
 
                   <v-divider></v-divider>
@@ -85,9 +86,21 @@
                         class="align-end"
                         :class="{ 'blue--text': sortBy === key }"
                       >
-                        {{ item[key.toLowerCase()] }}
+                        <div v-if="key !== 'Desarrollador'">
+                          {{ item[key.toLowerCase()] }}
+                        </div>
+                        <div v-else>
+                          <router-link
+                            style="text-decoration: none"
+                            to="/Profile/NaerHdz"
+                            >{{ item["desarrollador"] }}</router-link
+                          >
+                        </div>
                       </v-list-item-content>
                     </v-list-item>
+                    <a href="https://www.snk-corp.co.jp/us/games/kof-xv/">
+                      Ver detalles
+                    </a>
                   </v-list>
                 </v-card>
               </v-col>
@@ -150,7 +163,6 @@
         </v-data-iterator>
       </v-container>
     </v-main>
-    <Footer />
   </div>
 </template>
 
@@ -177,6 +189,7 @@ export default {
         imagen: require(`@/assets/${resp.gameDB[i].image}`),
         nombre: resp.gameDB[i].name,
         genero: resp.gameDB[i].genre,
+        desarrollador: "NaerHdz",
         fecha: resp.gameDB[i].creatAt,
       });
     }
@@ -185,7 +198,7 @@ export default {
     return {
       search: "",
       tab: "",
-      category: ["Juegos", "Genero", "Fecha"],
+      category: ["Juegos", "Genero", "Desarrollador", "Fecha"],
       itemsPerPageArray: [4, 8, 12],
       search: "",
       filter: {},
@@ -193,7 +206,7 @@ export default {
       page: 1,
       itemsPerPage: 4,
       sortBy: "Nombre",
-      keys: ["Nombre", "Genero", "Fecha"],
+      keys: ["Nombre", "Genero", "Desarrollador", "Fecha"],
       items: [],
     };
   },

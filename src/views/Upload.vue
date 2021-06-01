@@ -46,7 +46,6 @@
         </v-col>
       </v-row>
     </v-main>
-    <Footer />
   </div>
 </template>
 
@@ -86,7 +85,13 @@ export default {
         });
 
         if (response.ok) {
-          new swal("Listo!", "Se subio el videojuego exitosamente", "success");
+          new swal(
+            "Listo!",
+            "Se subio el videojuego exitosamente",
+            "success"
+          ).then(() => {
+            window.location.reload();
+          });
         } else {
           new swal("Error", "Revisa tu conexion a internet", "error");
         }

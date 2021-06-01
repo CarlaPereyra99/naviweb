@@ -39,7 +39,6 @@
         </v-row>
       </v-container>
     </v-main>
-    <Footer />
   </div>
 </template>
 
@@ -63,8 +62,8 @@ export default {
       const resp = await fetch("http://localhost:4000/api/user/login", {
         method: "post",
         body: JSON.stringify({
-          email: "hector.hdz2807@gmail.com",
-          password: "123456",
+          email: this.user,
+          password: this.password,
         }),
         headers: {
           "Content-Type": "application/json",

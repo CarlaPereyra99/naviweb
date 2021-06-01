@@ -1,37 +1,26 @@
 <template>
   <center>
+    <div>
+      <h1>BIENVENDIDO(A)</h1>
+    </div>
     <v-carousel
       v-model="model"
       cycle
       hide-delimiter-background
       show-arrows-on-hover
+      style="width: 90%; border-radius: 50px"
     >
-      <v-carousel-item v-for="color in colors" :key="color">
-        <v-sheet height="100%" max-width="68%">
+      <v-carousel-item
+        style="border-radius: 50px"
+        v-for="juego in juegos"
+        :key="juego"
+        :src="juego"
+      >
+        <!-- <v-sheet max-width="70%" class="mt-10">
           <v-row class="fill-height" align="center" justify="center">
-            <!-- <div class="display-3">Slide {{ i + 1 }}</div> -->
-            <v-img aspect-ratio="1.5" max-width="90%" :src="color" />
-            <v-card height="500px" dark>
-              <div class="d-flex flex-no-wrap justify-space-between">
-                <div>
-                  <v-card-title class="headline"> Titulo </v-card-title>
-                </div>
-              </div>
-
-              <div>
-                <v-avatar class="ma-3" size="125" tile>
-                  <v-img src="../assets/intro.jpg"></v-img>
-                </v-avatar>
-              </div>
-
-              <div>
-                <v-avatar class="ma-3" size="125" tile>
-                  <v-img src="../assets/pokemon_batalla.jpg"></v-img>
-                </v-avatar>
-              </div>
-            </v-card>
+            <v-img aspect-ratio="1.8" :src="juego" />
           </v-row>
-        </v-sheet>
+        </v-sheet> -->
       </v-carousel-item>
     </v-carousel>
   </center>
@@ -42,13 +31,19 @@ export default {
   data: () => {
     return {
       model: 0,
-      colors: [
-        require("../assets/kof97.jpg"),
-        require("../assets/metal slug.jpg"),
-        require("../assets/smashbros.jpg"),
+      juegos: [
+        require("../assets/kof97_detail.png"),
+        require("../assets/metal-slug-release-date.jpg"),
+        require("../assets/smash_pelea.jpg"),
         require("../assets/coverpokemon.jpg"),
       ],
     };
   },
 };
 </script>
+
+<style>
+h1 {
+  color: white;
+}
+</style>
