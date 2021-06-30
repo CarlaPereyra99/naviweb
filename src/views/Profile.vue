@@ -269,7 +269,7 @@ export default {
         imagen: require(`@/assets/${resp.gameDB[i].image}`),
         nombre: resp.gameDB[i].name,
         genero: resp.gameDB[i].genre,
-        desarrollador: "NaerHdz",
+        desarrollador: "CarlaQueen",
         fecha: resp.gameDB[i].creatAt,
       });
     }
@@ -290,11 +290,11 @@ export default {
       keys: ["Nombre", "Genero", "Desarrollador", "Fecha"],
       items: [],
       cover: require("@/assets/FondoPerfil.jpg"),
-      photo: require("@/assets/perfil/Hector.jpg"),
-      name: "Hector",
-      lastname: "Hernandez",
-      nickname: "NaerHdz",
-      email: "hector.hdz2807@gmail.com",
+      photo: require("@/assets/perfil/carlacartoon.jpg"),
+      name: "Carla",
+      lastname: "Pereyra",
+      nickname: "CarlaQueen",
+      email: "carlagpl@hotmail.com",
       games: [],
     };
   },
